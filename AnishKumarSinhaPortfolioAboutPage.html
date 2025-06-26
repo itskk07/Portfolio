@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anish Kumar Sinha - About</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #151515;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 1920px;
+            height: 1080px;
+            background-color: #151515;
+        }
+
+        /* Background Images */
+        .bg-vector-1 {
+            position: absolute;
+            top: 68px;
+            left: 0px;
+            width: 457px;
+            height: 693px;
+            z-index: 1;
+        }
+
+        .bg-vector-5 {
+            position: absolute;
+            top: 624px;
+            left: 1275px;
+            width: 458px;
+            height: 446px;
+            z-index: 1;
+        }
+
+        .bg-rectangle {
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            width: 525px;
+            height: 803px;
+            z-index: 2;
+        }
+
+        .bg-vector-3 {
+            position: absolute;
+            top: 0px;
+            left: 1450px;
+            width: 469px;
+            height: 1042px;
+            z-index: 1;
+        }
+
+        .bg-vector-4 {
+            position: absolute;
+            top: 675px;
+            left: 307px;
+            width: 338px;
+            height: 338px;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 59px;
+            left: 112px;
+            display: flex;
+            align-items: center;
+            width: 1707px;
+            height: 40px;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 35px;
+            height: 40px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .brand-name {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 34px;
+            color: #ffffff;
+            margin-right: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 27px;
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #ffff00;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: #ffff00;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffff00;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Social Media Sidebar */
+        .social-sidebar {
+            position: absolute;
+            top: 645px;
+            left: 112px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .social-icon {
+            width: 33px;
+            height: 33px;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+            filter: brightness(1.3);
+        }
+
+        .social-icon-small {
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-icon-large {
+            width: 35px;
+            height: 35px;
+        }
+
+        .social-stack {
+            position: relative;
+            width: 30px;
+            height: 36px;
+        }
+
+        .social-stack img {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            width: 20px;
+            height: 36px;
+        }
+
+        .social-stack .border-circle {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ffffff;
+            border-radius: 15px;
+            background: transparent;
+        }
+
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 200px;
+            left: 550px;
+            width: 1045px;
+            z-index: 5;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 37px;
+            width: 973px;
+            height: 75px;
+        }
+
+        .main-title {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 47px;
+            color: #ffffff;
+            margin-right: 276px;
+        }
+
+        .title-line {
+            width: 697px;
+            height: 1px;
+            background-color: #ffffff;
+            margin-top: 69px;
+        }
+
+        .bio-text {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 26px;
+            color: #ffffff;
+            white-space: pre-line;
+            margin-bottom: 42px;
+            width: 1045px;
+        }
+
+        .bio-text .highlight {
+            font-weight: 400;
+        }
+
+        .bottom-line {
+            width: 348px;
+            height: 1px;
+            background-color: #ffffff;
+            margin-left: 315px;
+        }
+
+        /* Email Contact */
+        .email-contact {
+            position: absolute;
+            top: 754px;
+            left: 1783px;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 19px;
+            color: #ffffff;
+            z-index: 10;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .email-contact:hover {
+            color: #ffff00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1440px) {
+            .container {
+                width: 100vw;
+                height: 100vh;
+                min-height: 800px;
+            }
+
+            .header {
+                width: calc(100% - 224px);
+            }
+
+            .nav-menu {
+                gap: 30px;
+            }
+
+            .main-content {
+                left: 400px;
+                width: calc(100% - 500px);
+            }
+
+            .title-section {
+                width: 100%;
+            }
+
+            .bio-text {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .header {
+                position: relative;
+                top: 20px;
+                left: 20px;
+                width: calc(100% - 40px);
+                flex-wrap: wrap;
+                height: auto;
+            }
+
+            .brand-name {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 16px;
+            }
+
+            .social-sidebar {
+                position: relative;
+                top: 20px;
+                left: 20px;
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .main-content {
+                position: relative;
+                top: 40px;
+                left: 20px;
+                width: calc(100% - 40px);
+            }
+
+            .main-title {
+                font-size: 28px;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .title-section {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+            }
+
+            .title-line {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .bio-text {
+                font-size: 18px;
+            }
+
+            .bottom-line {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .email-contact {
+                position: relative;
+                top: 20px;
+                left: 20px;
+                margin-bottom: 20px;
+            }
+
+            .bg-vector-1,
+            .bg-vector-5,
+            .bg-rectangle,
+            .bg-vector-3,
+            .bg-vector-4 {
+                display: none;
+            }
+        }
+
+        /* Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .social-sidebar {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .header {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fkartiksa7578back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Background Images -->
+        <img src="../assets/images/img_vector_1.png" alt="Background Vector 1" class="bg-vector-1" />
+        <img src="../assets/images/img_vector_5.svg" alt="Background Vector 5" class="bg-vector-5" />
+        <img src="../assets/images/img_rectangle.png" alt="Background Rectangle" class="bg-rectangle" />
+        <img src="../assets/images/img_vector_3.png" alt="Background Vector 3" class="bg-vector-3" />
+        <img src="../assets/images/img_vector_4.svg" alt="Background Vector 4" class="bg-vector-4" />
+
+        <!-- Header -->
+        <header class="header">
+            <a href="#home" class="logo-link">
+                <img src="../assets/images/img_group_15.svg" alt="Anish Kumar Sinha Logo" class="logo" />
+            </a>
+            <h1 class="brand-name">ANISH KUMAR SINHA</h1>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#resume" class="nav-link">Resume</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <img src="../assets/images/img_group.svg" alt="Theme Toggle" width="40" height="40" />
+            </button>
+        </header>
+
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar">
+            <a href="#facebook" aria-label="Facebook">
+                <img src="../assets/images/img_group_9.svg" alt="Facebook" class="social-icon" />
+            </a>
+            <a href="#instagram" aria-label="Instagram">
+                <img src="../assets/images/img_group_7.svg" alt="Instagram" class="social-icon" />
+            </a>
+            <a href="#twitter" aria-label="Twitter">
+                <img src="../assets/images/img_group_8.svg" alt="Twitter" class="social-icon" />
+            </a>
+            <a href="#github" aria-label="GitHub">
+                <img src="../assets/images/img_group_10.svg" alt="GitHub" class="social-icon social-icon-small" />
+            </a>
+            <a href="#linkedin" aria-label="LinkedIn">
+                <img src="../assets/images/img_group_11.svg" alt="LinkedIn" class="social-icon" />
+            </a>
+            <a href="#telegram" aria-label="Telegram">
+                <img src="../assets/images/img_group_12.svg" alt="Telegram" class="social-icon social-icon-large" />
+            </a>
+            <div class="social-stack">
+                <img src="../assets/images/img_outputonlinepngtools_1.png" alt="Additional Social" />
+                <div class="border-circle"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="title-section">
+                <h2 class="main-title">This is it. ;)</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <p class="bio-text">
+Anish Kr. Sinha is an Indian <span class="highlight">UI/UX Designer & Front End Developer</span> with a passion for designing beautiful and fuctional user experiences. Typically, he's Driven & permanently Curious. He's obsessed with designing things and even more obsessed with designing cool & clean stuff for the web and mobile. He has been in the business of creating since he hung his first painting on the wall when he was 11. 
+He holds a <span class="highlight">bachelor degree in Computer Applications.</span> During his graduation, he has been actively involved in the web design community for the last 3 years. he has designed websites for small businesses, events, nonprofits and more. Currently he's based in Bihar, <span class="highlight">India</span>. Where he's working as an independent creative. 
+
+His interests, however, extend beyond the web and he loves helping people with branding and print design. He even loves designing <span class="highlight">3D floor plan</span>
+
+<span class="highlight">When he's not designing, he's probably hanging out with his girlfriend, watching series, sketching or messing around on something inspired by YouTube tutorials.</span>
+            </p>
+            
+            <div class="bottom-line"></div>
+        </main>
+
+        <!-- Email Contact -->
+        <a href="mailto:sinhaanishkumar@outlook.com" class="email-contact">
+            sinhaanishkumar@outlook.com
+        </a>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const themeToggle = document.querySelector('.theme-toggle');
+            const socialIcons = document.querySelectorAll('.social-sidebar a');
+            
+            // Navigation click handlers
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Simulate navigation
+                    const section = this.textContent.toLowerCase();
+                    console.log(`Navigating to ${section} section`);
+                    
+                    // Show navigation feedback
+                    showNotification(`Navigating to ${this.textContent}`);
+                });
+            });
+            
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function() {
+                const body = document.body;
+                const container = document.querySelector('.container');
+                
+                if (body.style.backgroundColor === 'rgb(255, 255, 255)' || body.style.backgroundColor === '#ffffff') {
+                    // Switch to dark theme
+                    body.style.backgroundColor = '#151515';
+                    container.style.backgroundColor = '#151515';
+                    showNotification('Switched to dark theme');
+                } else {
+                    // Switch to light theme
+                    body.style.backgroundColor = '#ffffff';
+                    container.style.backgroundColor = '#ffffff';
+                    showNotification('Switched to light theme');
+                }
+            });
+            
+            // Social media click handlers
+            socialIcons.forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.getAttribute('aria-label') || 'Social Media';
+                    showNotification(`Opening ${platform} profile`);
+                    console.log(`Clicked on ${platform}`);
+                });
+            });
+            
+            // Email contact click handler
+            const emailContact = document.querySelector('.email-contact');
+            emailContact.addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification('Opening email client...');
+                // Simulate email opening
+                setTimeout(() => {
+                    window.location.href = 'mailto:sinhaanishkumar@outlook.com';
+                }, 1000);
+            });
+            
+            // Logo click handler
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('click', function() {
+                showNotification('Returning to home');
+                // Remove active from all nav links
+                navLinks.forEach(l => l.classList.remove('active'));
+                // Add active to home
+                document.querySelector('.nav-link[href="#home"]').classList.add('active');
+            });
+        });
+        
+        // Notification system
+        function showNotification(message) {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #ffff00;
+                color: #151515;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 1000;
+                animation: slideIn 0.3s ease-out;
+            `;
+            
+            // Add slide-in animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideIn 0.3s ease-out reverse';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+        
+        // Smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+        
+        // Add loading animation
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.header, .main-content, .social-sidebar');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                // Ensure focus is visible
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+        
+        // Add keyboard navigation styles
+        const keyboardStyles = document.createElement('style');
+        keyboardStyles.textContent = `
+            .keyboard-navigation *:focus {
+                outline: 2px solid #ffff00 !important;
+                outline-offset: 2px !important;
+            }
+        `;
+        document.head.appendChild(keyboardStyles);
+    </script>
+</body>
+</html>
